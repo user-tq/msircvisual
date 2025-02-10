@@ -17,7 +17,7 @@ pandas
 ### 1. tumor-normal 绘图
 
 ```
-python msikvisual.py  -t tumor.bam \
+python msircvisual.py  -t tumor.bam \
 -n normal.bam  -b source/msi.bed  -o test/test.png --genome /mnt/store/pipeline/snakemake/somatic_pipeline/source/Homo_sapiens/GATK/GRCh37/Sequence/WholeGenomeFasta/human_g1k_v37_decoy.fasta
 ```
 
@@ -29,19 +29,19 @@ python msikvisual.py  -t tumor.bam \
 python get_rc_distribution_baseline.py  -n  *.normal.bam \
 -b source/msi.bed \
 --genome human_g1k_v37_decoy.fasta \
--o source/msikvisual_baseline.txt
+-o source/msircvisual_baseline.txt
 ```
 
-- 运行 msikvisual.py
+- 运行 msircvisual.py
 
 ```
-python msikvisual.py  -bsl source/msikvisual_baseline.txt  -t tumor.bam -b source/msi.bed -o test/test.png --genome human_g1k_v37_decoy.fasta
+python msircvisual.py  -bsl source/msircvisual_baseline.txt  -t tumor.bam -b source/msi.bed -o test/test.png --genome human_g1k_v37_decoy.fasta
 ```
 
 ### 3. 单样本绘图(无基线)
 
 ```
-python msikvisual.py  -t tumor.bam -b source/msi.bed -o test/test.png --genome human_g1k_v37_decoy.fasta
+python msircvisual.py  -t tumor.bam -b source/msi.bed -o test/test.png --genome human_g1k_v37_decoy.fasta
 ```
 
 ### bed 文件要求
@@ -62,7 +62,7 @@ demo 见 [msibed](./source/msi.bed)
 
 ## 参数
 
-msikvisual.py
+msircvisual.py
 
 - normal：正常样本的 bam 文件
 - baseline：基线的 tsv 文件，
