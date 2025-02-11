@@ -2,14 +2,13 @@
 
 另外也感谢达安基因，这个图片是对他们展示结果的复刻，但他们的分析代码是非开源的。
 
-## 依赖
+## 环境
 
 ```
-numPy
-pysam
-matplotlib
-scipy
-pandas
+
+pip install -r requirements.txt
+
+#测试环境python==3.12.8，低版本运行可能有影响
 ```
 
 ## 运行方式
@@ -18,7 +17,7 @@ pandas
 
 ```
 python msircvisual.py  -t tumor.bam \
--n normal.bam  -b source/msi.bed  -o test/test.png --genome /mnt/store/pipeline/snakemake/somatic_pipeline/source/Homo_sapiens/GATK/GRCh37/Sequence/WholeGenomeFasta/human_g1k_v37_decoy.fasta
+-n normal.bam  -b source/msi.bed  -o test/test.png --genome human_g1k_v37_decoy.fasta
 ```
 
 ### 2. 单样本绘图(带有基线)
@@ -41,7 +40,7 @@ python msircvisual.py  -bsl source/msircvisual_baseline.txt  -t tumor.bam -b sou
 ### 3. 单样本绘图(无基线)
 
 ```
-python msircvisual.py  -t tumor.bam -b source/msi.bed -o test/test.png --genome human_g1k_v37_decoy.fasta
+python msircvisual.py  -t tumor.bam -b source/msi.bed -o test/test-tumor.png --genome human_g1k_v37_decoy.fasta
 ```
 
 ### bed 文件要求
@@ -59,6 +58,8 @@ demo 见 [msibed](./source/msi.bed)
 ## 结果展示
 
 ![ouput](./test/test.png)
+
+![output](./test/test-tumor.png)
 
 ## 参数
 
@@ -80,3 +81,7 @@ msircvisual.py
 ## 其它
 
 关于 Mann-Whitney U 检验的获取 p 值的部分，或许存在一些统计上的不严谨，抱歉我确实不擅长这些。
+
+## 版权声明
+
+本项目基于 [MANTIS2](https://github.com/nh13/MANTIS2)开发，遵循 GPLv3 许可证。

@@ -2,7 +2,7 @@ import argparse
 import pandas as pd
 import os
 from helpers import tprint
-from dev_test.part_msi_plot.diy_visualmsi.mysele.get_rc_distribution_baseline import (
+from get_rc_distribution_baseline import (
     KmerRepeatCounter,
     MSILocusLoader,
     normalize_dataframe,

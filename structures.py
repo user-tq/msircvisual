@@ -84,7 +84,7 @@ class SAMRead(object):
         if length < 1:
             length = len(self.qual)
 
-        if length is 0:
+        if length == 0:
             return 0.0
 
         total_score = 0
@@ -104,7 +104,7 @@ class SAMRead(object):
             segment = cigar.pop(0)
             token = segment[0]
             size = segment[1]
-            if token is "S":
+            if token == "S":
                 length -= size
         return length
         # end .calculate_length()

@@ -932,7 +932,7 @@ if __name__ == "__main__":
         df_fill = df.reindex(range(1, config["max_repeat_nums"] + 1), fill_value=0)
 
         df_fill = normalize_dataframe(df_fill)
-        df_fill.to_csv(f"{config["output_norm_dir"]}/{normal_out_fname}", sep="\t")
+        df_fill.to_csv(f"{config['output_norm_dir']}/{normal_out_fname}", sep="\t")
         # 累加到整合结果的DataFrame中
         if combined_df.empty:
             combined_df = df_fill.copy()
