@@ -1,0 +1,51 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    # 安装基础依赖
+    apt-get update -y
+    apt-get install -y python3 python3-pip
+
+    # 安装Python依赖
+    pip3 install --no-cache-dir \
+        matplotlib==3.10.0 \
+        numpy==2.0.0 \
+        pandas==2.2.3 \
+        pysam==0.23.0 \
+        scipy==1.15.1
+
+%files
+    ../get_rc_distribution_baseline.py /app/get_rc_distribution_baseline.py 
+    ../helpers.py /app/helpers.py  
+    ../msi_plot.py /app/msi_plot.py  
+    ../msircvisual.py /app/msircvisual.py 
+    ../offset_finder.py /app/offset_finder.py  
+    ../structures.py /app/structures.py  
+
+%environment
+    export LC_ALL=C.UTF-8
+    export PYTHONUNBUFFERED=1
+    export PATH=/app:$PATH
+
+%runscript
+    # 默认执行 msircvisual.py
+    if [ $# -eq 0 ]; then
+        echo "Usage: apptainer run <image> [msircvisual|get_rc_distribution_baseline] [args...]"
+        exit 1
+    fi
+
+    SCRIPT=$1
+    shift  # 移除第一个参数（脚本名），剩余参数传递给脚本
+
+    case $SCRIPT in
+        get_rc_distribution_baseline)
+            exec python3 /app/get_rc_distribution_baseline "$@"
+            ;;
+        msircvisual)
+            exec python3 /app/msircvisual.py  "$@"
+            ;;
+        *)
+            echo "Error: Unknown script '$SCRIPT'. Available scripts: msircvisual, get_rc_distribution_baseline"
+            exit 1
+            ;;
+    esac

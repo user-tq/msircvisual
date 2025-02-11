@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # @file kmer_repeat_counter.py
 # @author Esko Kautto (esko.kautto@osumc.edu)

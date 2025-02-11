@@ -9,6 +9,11 @@
 pip install -r requirements.txt
 
 #测试环境python==3.12.8，低版本运行可能有影响
+
+#如果使用apptainer，可以
+cd env_apptainter
+apptainer build  msircvisual.sif  ./msircvisual.def
+
 ```
 
 ## 运行方式
