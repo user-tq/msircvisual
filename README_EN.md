@@ -9,6 +9,17 @@ Additionally, we would like to thank DAAN Gene. The image in this project is a r
 pip install -r requirements.txt
 
 # Tested environment: python==3.12.8. Running with lower versions may cause issues.
+
+# you can also build an image using Apptainer.
+# need to download the project to your local machine first.
+
+cd env_apptainter
+apptainer build  msircvisual.sif  ./msircvisual.def
+
+# cmd
+apptainer run  msircvisual.sif  get_rc_distribution_baseline
+apptainer run  msircvisual.sif  msircvisual
+
 ```
 
 ## Usage
