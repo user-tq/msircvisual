@@ -39,7 +39,7 @@ From: ubuntu:22.04
 
     case $SCRIPT in
         get_rc_distribution_baseline)
-            exec python3 /app/get_rc_distribution_baseline "$@"
+            exec python3 /app/get_rc_distribution_baseline.py "$@"
             ;;
         msircvisual)
             exec python3 /app/msircvisual.py  "$@"
