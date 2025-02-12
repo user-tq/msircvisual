@@ -1,6 +1,6 @@
 ## Acknowledgements
 
-A large portion of the code in this script is derived from Mantis2. We would like to express our gratitude to the authors of Mantis2.
+A large portion of the code in this script is derived from Mantis2/Mantis. We would like to express our gratitude to the authors of Mantis2/Mantis.
 Additionally, we would like to thank DAAN Gene. The image in this project is a replication of their results. However, their analysis code is not open-source.
 
 ### Environment
